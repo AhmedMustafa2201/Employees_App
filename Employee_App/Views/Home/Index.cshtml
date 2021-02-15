@@ -1,0 +1,94 @@
+﻿@using Microsoft.Ajax.Utilities
+@model IEnumerable<IGrouping<string, Employee_App.Repository.ViewModels.JoinVM>>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+
+<h2>Maximum Number of clients in @ViewBag.MaxCountName Department is @ViewBag.MaxCount</h2>
+<h2>Maximum Salary from Employees is @ViewBag.MaxSalary$ While the Minimum is @ViewBag.MinSalary$</h2>
+<a style="margin: 5px;float: right;" class="btn btn-primary" href="/Home/Create">
+    Add Employers to Department
+</a>
+<a style="margin: 5px;float: right;" class="btn btn-success" href="/Home/CreateClient">
+    Add Client to Employers
+</a>
+<select id="selectID" class="form-control">
+    <option selected value="1">Employee</option>
+    <option value="2">Department</option>
+</select>
+<input type="text" placeholder="Search for Employee..." class="form-control" onkeyup="fetch_data(event)" id="myInput">
+<div class="myUL"></div>
+
+
+
+<table class="table">
+    <tr>
+        <th>Department</th>
+        <th>Employees with Clients</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+
+        <tr>
+            <td>
+                @item.Key<br /> <b>No. of Employees @item.GroupBy(c => c.Emp_Name).Where(e => e.Key != null).Count()</b>
+            </td>
+            <td>
+                @foreach (var emp in item.GroupBy(c => c.Emp_Name))
+                {
+                    if (emp.Key != null)
+                    {
+                        <b>@emp.Key</b><br />
+                        <ul>
+                            @foreach (var client in emp)
+                            {
+                                if (client.Client_Name != null)
+                                {
+                                    <li>Mr. @client.Client_Name</li>
+                                }
+                            }
+                        </ul>
+
+                    }
+                }
+            </td>
+        </tr>
+    }
+</table>
+
+@section scripts
+{
+    <script>
+        function fetch_data (e) {
+            if (e.keyCode == 13) {
+                //console.log(e.target.value)
+                var selected_val = $("#selectID").val();
+                debugger 
+                $.ajax({
+                    type: "POST",
+                    url: "/Home/Search",
+                    contentType: "application/json",
+                    data: JSON.stringify({ search_str: e.target.value, search_by: selected_val }),
+                    success: function(result) {
+                        //console.log(result);
+                        var temp = `<ul>`;
+                        for (var i in result) {
+                            if (result[i].Search_By == 1) {
+                            temp += `<li><a target="_blank" href="/Home/Details/${result[i].ID}">${result[i].Name}</a></li>`;
+                            } else {
+                            temp += `<li><a target="_blank" href="/Home/DepartmentDetails/${result[i].ID}">${result[i].Name}</a></li>`;
+                            }
+                        }
+                        temp += `</ul>`;
+                        $(".myUL").html(temp);
+                    }
+                });
+            }
+        }
+
+    </script>
+
+}

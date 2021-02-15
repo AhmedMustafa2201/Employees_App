@@ -1,0 +1,39 @@
+﻿@model IEnumerable<IGrouping<string, Employee_App.Repository.ViewModels.DepartmentVM>>
+
+@{
+    ViewBag.Title = "DepartmentDetails";
+}
+
+<h2>DepartmentDetails</h2>
+
+<div>
+    <h4>DepartmentVM</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Department Name
+        </dt>
+
+        @foreach (var item in Model)
+        {
+            <dd>
+                @Html.DisplayFor(model => item.Key)
+            </dd>
+            <dt>
+                Employees
+            </dt>
+            <dd>
+                <ul>
+                    @foreach (var t in item)
+                    {
+                        <li>@t.EmployeeName</li>
+                    }
+                </ul>
+            </dd>
+        }
+        
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Back to List", "Index")
+</p>

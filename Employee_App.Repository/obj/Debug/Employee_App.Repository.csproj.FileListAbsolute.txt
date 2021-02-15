@@ -1,0 +1,15 @@
+E:\FFOutput\Employee_App\Employee_App.Repository\bin\Debug\Employee_App.Repository.dll.config
+E:\FFOutput\Employee_App\Employee_App.Repository\bin\Debug\Employee_App.Repository.dll
+E:\FFOutput\Employee_App\Employee_App.Repository\bin\Debug\Employee_App.Repository.pdb
+E:\FFOutput\Employee_App\Employee_App.Repository\bin\Debug\Employee_App.Data.dll
+E:\FFOutput\Employee_App\Employee_App.Repository\bin\Debug\EntityFramework.dll
+E:\FFOutput\Employee_App\Employee_App.Repository\bin\Debug\EntityFramework.SqlServer.dll
+E:\FFOutput\Employee_App\Employee_App.Repository\bin\Debug\Employee_App.Data.pdb
+E:\FFOutput\Employee_App\Employee_App.Repository\bin\Debug\Employee_App.Data.dll.config
+E:\FFOutput\Employee_App\Employee_App.Repository\bin\Debug\EntityFramework.xml
+E:\FFOutput\Employee_App\Employee_App.Repository\bin\Debug\EntityFramework.SqlServer.xml
+E:\FFOutput\Employee_App\Employee_App.Repository\obj\Debug\Employee_App.Repository.csprojAssemblyReference.cache
+E:\FFOutput\Employee_App\Employee_App.Repository\obj\Debug\Employee_App.Repository.csproj.CoreCompileInputs.cache
+E:\FFOutput\Employee_App\Employee_App.Repository\obj\Debug\Employee_App.Repository.csproj.CopyComplete
+E:\FFOutput\Employee_App\Employee_App.Repository\obj\Debug\Employee_App.Repository.dll
+E:\FFOutput\Employee_App\Employee_App.Repository\obj\Debug\Employee_App.Repository.pdb
